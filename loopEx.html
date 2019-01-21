@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <ul>
+        <li v-for="obj in scores">{{obj.mid}} - {{obj.score}} <b v-if="checkPass(obj.score)">합격</b></li>
+    </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: "#app",
+        data: {
+            scores: [
+                {mid:"USER00", score:67},
+                {mid:"USER01", score:24},
+                {mid:"USER02", score:37},
+                {mid:"USER03", score:8},
+                {mid:"USER04", score:100},
+                {mid:"USER05", score:97},
+            ]
+        },
+        methods: {
+            checkPass: function(value){ return value > 50}
+            sort1: function(){
+                this.scores = this.scores.sort( (a,b) => a.scores - b.scores)
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>
